@@ -1,4 +1,4 @@
-# Coffee-Website
+# Coffee-Website || WebSystems 2
 ## This is for school purposes only. It uses PHP, MySQL, HTML, and CSS
 
 EXPLANATION FOR THE SCRIPT IN _adminproducts.php_:
