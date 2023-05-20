@@ -248,7 +248,7 @@
                     <a href="adminproducts.php" class="whatshot"></a>
                     <div>
                         <ul>
-                        <?php
+                            <?php
                             // Check if the user is logged in and has the usertype of "admin"
                             if (!isset($_COOKIE['type']) || $_COOKIE['type'] !== 'admin') {
                                 header("Location: index.php?action=login&#login_form");
@@ -319,14 +319,17 @@
                             ?>
 
                             <script>
+                                // Function to open the form popup
                                 function openFormPopup() {
                                     document.getElementById('popup-container').style.display = 'flex';
                                 }
 
+                                // Function to close the form popup
                                 function closeFormPopup() {
                                     document.getElementById('popup-container').style.display = 'none';
                                 }
 
+                                // Function to handle the change event of the product option select element
                                 function handleProductOptionChange(prodid, selectElement) {
                                     var value = selectElement.value;
 
@@ -339,7 +342,8 @@
                                     }
                                 }
 
-                                function handleInsertProduct(prodid, selectElement) { // Add selectElement as a parameter
+                                // Function to handle the "insert" product option
+                                function handleInsertProduct(prodid, selectElement) {
                                     // Retrieve the category of the selected product
                                     var prodcat = selectElement.getAttribute("data-category");
 
@@ -357,6 +361,7 @@
                                     xhr.send("prodid=" + prodid + "&category=" + prodcat + "&option=insert");
                                 }
 
+                                // Function to handle the "delete" product option
                                 function handleDeleteProduct(prodid) {
                                     var confirmationMessage = "Are you sure you want to delete this product (prodid = " + prodid + ")?";
 
@@ -377,6 +382,8 @@
                                         selectElement.value = "";
                                     }
                                 }
+
+                                // Function to handle the "edit" product option
                                 function handleProductEdit(prodid) {
                                     // Show the edit form popup
                                     document.getElementById('popup-container').style.display = 'block';
@@ -402,11 +409,12 @@
                                             document.getElementById('quantity').value = productDetails.quantity;
                                             document.getElementById('curprice').value = productDetails.curprice;
                                             document.getElementById('prodcat').value = productDetails.prodcat;
-
                                         }
                                     };
                                     xhr.send();
                                 }
+
+                                // Function to edit the category name
                                 function editCategoryName(categoryId) {
                                     var categoryElement = document.getElementById('category-' + categoryId);
                                     var categoryLink = categoryElement.querySelector('.category-link');
@@ -445,6 +453,8 @@
                                         categoryElement.appendChild(inputElement);
                                     }
                                 }
+
+                                // Function to create a new category
                                 function createNewCategory() {
                                     // Send an AJAX request to create a new category
                                     var xhr = new XMLHttpRequest();
@@ -459,6 +469,7 @@
                                     xhr.send();
                                 }
 
+                                // Function to confirm and delete a category
                                 function confirmDeleteCategory(categoryId) {
                                     var confirmationMessage = "Are you sure you want to delete this category (" + categoryId + ") and its products?";
 
